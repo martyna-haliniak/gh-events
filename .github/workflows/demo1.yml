@@ -1,11 +1,20 @@
 name: Events Demo 1
 on:
   pull_request:
-    types: opened
+    types: opened  # activity types
       #- opened
       #- edited     (alternative to [opened, edited])
   workflow_dispatch:
   # not adding anything after workflow_dispatch, indent with other triggers/events
+  push:  # push triggers event when code is pushed to any branch 
+    branches:
+      - main
+      - 'dev-*' # means dev-anything, 
+      - 'feat/**' # all branches that start with feat/, can include more / whereas dev-* can't have any slashes 
+    paths-ignore:
+      - '.github/workflows/*'  # only triggered when nothing changed in workflows folder + above branches
+    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
