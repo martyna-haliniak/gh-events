@@ -31,3 +31,6 @@ jobs:
         run: npm run build
       - name: Deploy project
         run: echo "Deploying..."
+
+# skipping workflow run:
+# git commit -m "added comments [skip ci]" or [skip actions]
