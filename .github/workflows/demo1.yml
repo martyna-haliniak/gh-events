@@ -1,5 +1,11 @@
 name: Events Demo 1
-on: ...
+on:
+  pull_request:
+    types: opened
+      #- opened
+      #- edited     (alternative to [opened, edited])
+  workflow_dispatch:
+  # not adding anything after workflow_dispatch, indent with other triggers/events
 jobs:
   deploy:
     runs-on: ubuntu-latest
